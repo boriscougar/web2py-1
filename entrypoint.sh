@@ -11,6 +11,24 @@ selectVersion() {
   fi
 }
 
+# Run scheduler worker
+if [ "$1" = 'scheduler' ]; then
+  # switch to a particular Web2py version if specificed
+  selectVersion
+  # run python worker
+  #run scheduled tasks for the specified apps: expects a
+  #list of app names as -K app1,app2,app3 or a list of
+  #app:groups as -K app1:group1:group2,app2:group1 to
+  #override specific group_names. (only strings, no
+  #spaces allowed. Requires a scheduler defined in the
+  #models
+  if [ "$WEB2PY_SCHEDULER_APPS" == '' ]; then
+    echo "ERROR - WEB2PY_SCHEDULER_APPS not specified"
+    exit 1
+  fi
+  exec python web2py.py -K '$WEB2PY_SCHEDULER_APPS'
+fi
+
 # Run uWSGI using the uwsgi protocol
 if [ "$1" = 'uwsgi' ]; then
   # switch to a particular Web2py version if specificed
