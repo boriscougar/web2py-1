@@ -21,6 +21,7 @@ Then open a web browser to:  http://localhost:8080
 |http   |8080|`http://` |Using uWSGI in HTTP mode (default)|
 |uwsgi  |9090|`uwsgi://`|Useful for connecting to a reverse proxy like nginx|
 |rocket |8080|`http://` |Uses the built in Web2py Rocket web server|
+|scheduler |--|`--` |Starts scheduler worker for specified apps/groups in WEB2PY_SCHEDULER_APPS|
 
 Example:
 ```
