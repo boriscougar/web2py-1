@@ -20,7 +20,7 @@ if [ "$1" = 'scheduler' ]; then
     echo "ERROR - WEB2PY_SCHEDULER_APPS not specified"
     exit 1
   fi
-  exec python web2py.py -K '$WEB2PY_SCHEDULER_APPS'
+  exec python web2py.py -K $WEB2PY_SCHEDULER_APPS
 fi
 
 # Run uWSGI using the uwsgi protocol
