@@ -12,13 +12,19 @@ ENV WEB2PY_SCHEDULER_APPS=
 
 WORKDIR /opt
 
+RUN apk update && apk add 
 RUN apk update && apk add \
+    postgresql-dev \
+    gcc \
+    python3-dev \
+    musl-dev \
     build-base \
     linux-headers \
     pcre-dev \
     wget \
  && pip install --upgrade pip \
  && pip install uwsgi \
+ && pip install psycopg2 \
  && wget http://web2py.com/examples/static/web2py_src.zip \
  && unzip web2py_src.zip \
  && rm web2py_src.zip \
