@@ -1,8 +1,8 @@
-FROM python:2-alpine
+FROM python:3-alpine
 LABEL AUTHOR "Dave Sperling <dsperling@smithmicro.com>"
 
 ENV WEB2PY_ROOT=/opt/web2py
-ENV WEB2PY_VERSION=R-2.16.1
+ENV WEB2PY_VERSION=
 
 # overridable environment variables
 ENV WEB2PY_PASSWORD=
